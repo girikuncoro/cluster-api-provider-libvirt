@@ -17,12 +17,12 @@ limitations under the License.
 package controller
 
 import (
-	"sigs.k8s.io/cluster-api-provider-solas/pkg/cloud/solas/actuators/cluster"
+	"sigs.k8s.io/cluster-api-provider-libvirt/pkg/cloud/libvirt/actuators/cluster"
 	capicluster "sigs.k8s.io/cluster-api/pkg/controller/cluster"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 )
 
-//+kubebuilder:rbac:groups=solas.k8s.io,resources=solasclusterproviderspecs;solasclusterproviderstatuses,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=libvirt.k8s.io,resources=libvirtclusterproviderspecs;libvirtclusterproviderstatuses,verbs=get;list;watch;create;update;patch;delete
 func init() {
 	// AddToManagerFuncs is a list of functions to create controllers and add them to a manager.
 	AddToManagerFuncs = append(AddToManagerFuncs, func(m manager.Manager) error {

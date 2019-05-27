@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"os"
 
-	"sigs.k8s.io/cluster-api-provider-solas/pkg/apis"
-	"sigs.k8s.io/cluster-api-provider-solas/pkg/cloud/solas/actuators/cluster"
-	"sigs.k8s.io/cluster-api-provider-solas/pkg/cloud/solas/actuators/machine"
+	"sigs.k8s.io/cluster-api-provider-libvirt/pkg/apis"
+	"sigs.k8s.io/cluster-api-provider-libvirt/pkg/cloud/libvirt/actuators/cluster"
+	"sigs.k8s.io/cluster-api-provider-libvirt/pkg/cloud/libvirt/actuators/machine"
 	clusterapis "sigs.k8s.io/cluster-api/pkg/apis"
 	"sigs.k8s.io/cluster-api/pkg/apis/cluster/common"
 	"sigs.k8s.io/cluster-api/pkg/client/clientset_generated/clientset"
@@ -42,7 +42,7 @@ func main() {
 	}
 
 	flag.Parse()
-	log := logf.Log.WithName("solas-controller-manager")
+	log := logf.Log.WithName("libvirt-controller-manager")
 	logf.SetLogger(logf.ZapLogger(false))
 	entryLog := log.WithName("entrypoint")
 
@@ -73,7 +73,7 @@ func main() {
 	}
 
 	// Register our cluster deployer (the interface is in clusterctl and we define the Deployer interface on the actuator)
-	common.RegisterClusterProvisioner("solas", clusterActuator)
+	common.RegisterClusterProvisioner("libvirt", clusterActuator)
 
 	if err := apis.AddToScheme(mgr.GetScheme()); err != nil {
 		panic(err)
