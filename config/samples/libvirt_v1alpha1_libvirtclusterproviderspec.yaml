@@ -1,0 +1,9 @@
+apiVersion: libvirt.cluster.k8s.io/v1alpha1
+kind: LibvirtClusterProviderSpec
+metadata:
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: libvirtclusterproviderspec-sample
+spec:
+  # Add fields here
+  foo: bar
