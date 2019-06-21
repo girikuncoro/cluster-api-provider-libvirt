@@ -12,6 +12,10 @@ test: generate fmt vet manifests
 manager: generate fmt vet
 	go build -o bin/manager sigs.k8s.io/cluster-api-provider-libvirt/cmd/manager
 
+# Build manager binary
+clusterctl: generate fmt vet
+	go build -o bin/clusterctl sigs.k8s.io/cluster-api-provider-libvirt/cmd/clusterctl
+
 # Run against the configured Kubernetes cluster in ~/.kube/config
 run: generate fmt vet
 	go run ./cmd/manager/main.go
